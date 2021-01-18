@@ -21,6 +21,15 @@ class Node:
         else:
             self.data = data        # ağacın ilk düşümü
             
+    def getHeight(self):
+      return Node.getHeightHelper(self)
+
+    def getHeightHelper(node):
+      if not node:
+        return 0
+      else:
+        return max(Node.getHeightHelper(node.left), Node.getHeightHelper(node.right)) + 1
+            
 # Ağacı yazdır
     def PrintTree(self):
         print( self.data,end='-')
@@ -52,19 +61,6 @@ class Node:
             return 1
 
 # Use the insert method to add nodes
-
-root = Node(25)
-root.insert(12)
-root.insert(10)
-root.insert(22)
-root.insert(5)
-root.insert(36)
-root.insert(30)
-root.insert(40)
-root.insert(28)
-root.insert(38)
-root.insert(48)
-root.PrintTree()
 
 
 """
